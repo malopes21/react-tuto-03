@@ -1,7 +1,11 @@
 import React from 'react'
 import Table from './Table'
+import Form from './Form'
 
 class App extends React.Component {
+    handleSubmit = (character) => {
+        this.setState({characters: [...this.state.characters, character]})
+    }
     removeCharacter = (index) => {
         const {characters} = this.state
         this.setState({
@@ -11,20 +15,7 @@ class App extends React.Component {
         })
     }
     state = {
-        characters: [
-            {
-                name: 'Marcos Lopes Silva',
-                job: 'Professor TI'
-            },
-            {
-                name: 'Fulano de Tal',
-                job: 'Trabalhador de Encanamento'
-            },
-            {
-                name: 'Beltrano o Tal',
-                job: 'Atendimento a Cliente'
-            }
-        ]
+        characters: []
     }
     render() {
         const {characters} = this.state
@@ -32,6 +23,7 @@ class App extends React.Component {
             <div className="container">
                 <Table characterData ={characters}
                     removeCharacter={this.removeCharacter}/>
+                <Form handleSubmit={this.handleSubmit} />
             </div>
         )
     }
