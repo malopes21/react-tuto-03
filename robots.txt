@@ -1,0 +1,4 @@
+# https://www.robotstxt.org/robotstxt.html
+# malopes test
+User-agent: *
+Disallow:
